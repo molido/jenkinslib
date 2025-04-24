@@ -18,6 +18,7 @@ pipeline {
                 script {
                     input id: 'TestID', message: 'continue', ok: 'Yes, Continue', parameters: [choice(choices: ['a', 'b'], name: 'testP')], submitter: 'mo'
                     echo 'Stage Two1111'
+                    tools.PrintMes("This is my lib"， "blue")
                 }
             }
         }
@@ -25,9 +26,9 @@ pipeline {
             steps {
                 script {
                     def mvHome = tool "maven"
-                    println('asdasdasd'+mvHome)
+                    println('asdasdasd '+ mvHome )
                     sh "${mvHome}/bin/mvn  --version"
-                    tools.PrintMes("This is my lib")
+                    tools.PrintMes("This is my lib"， "red")
                     
                 }            
                 
